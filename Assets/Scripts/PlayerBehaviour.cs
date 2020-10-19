@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float jumpForce;
     
     private Inputs inputs;
     private Vector2 direction;
@@ -23,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
         inputs.Enable();
         inputs.Player.Move.performed += OnMovePerformed;
         inputs.Player.Move.canceled += OnMoveCanceled;
+        inputs.Player.Jump.performed += JumpOnPerformed;
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myRenderer = GetComponent<SpriteRenderer>();
@@ -36,7 +38,12 @@ public class PlayerBehaviour : MonoBehaviour
     {   
         direction = obj.ReadValue<Vector2>();
     }
-    
+
+    private void JumpOnPerformed(InputAction.CallbackContext obj)
+    {
+        myRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
