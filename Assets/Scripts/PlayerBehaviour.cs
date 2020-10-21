@@ -9,9 +9,11 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private LayerMask Ground;
     
     private Inputs inputs;
     private Vector2 direction;
+    private bool isOnGround = false;
 
     private Rigidbody2D myRigidbody;
     private Animator myAnimator;
@@ -41,7 +43,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void JumpOnPerformed(InputAction.CallbackContext obj)
     {
-        myRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        if (isOnGround)
+        {
+            myRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isOnGround = false;
+        }
     }
 
     // Start is called before the first frame update
@@ -65,6 +71,14 @@ public class PlayerBehaviour : MonoBehaviour
         else if (direction.x > 0)
         {
             myRenderer.flipX = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
         }
     }
 }
