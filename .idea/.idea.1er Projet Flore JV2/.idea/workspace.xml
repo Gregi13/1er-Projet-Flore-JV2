@@ -15,6 +15,7 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Script/PlayerBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu.cs" />
       </list>
     </option>
   </component>
@@ -62,7 +63,8 @@
       <workItem from="1602850884763" duration="2291000" />
       <workItem from="1603097083855" duration="12061000" />
       <workItem from="1603189738861" duration="2572000" />
-      <workItem from="1603267803091" duration="4906000" />
+      <workItem from="1603267803091" duration="4907000" />
+      <workItem from="1603448628790" duration="8292000" />
     </task>
     <servers />
   </component>
@@ -79,5 +81,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602851039091" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603459547166">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603459547166" />
   </component>
 </project>
